@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SampleMVP</string>
+    <string name="login.email.hint">Email</string>
+    <string name="login.password.hint">Password</string>
+    <string name="button.login">Login</string>
+    <string name="button.register">sign up</string>
 </resources>
