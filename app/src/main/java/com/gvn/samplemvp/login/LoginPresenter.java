@@ -26,7 +26,7 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     }
 
-    public boolean isStringNotEmptyOrNull(String s) {
+    public static boolean isStringNotEmptyOrNull(String s) {
         return s != null && s.trim().length() > 0;
     }
 
