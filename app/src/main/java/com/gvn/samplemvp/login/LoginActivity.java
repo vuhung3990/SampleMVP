@@ -46,6 +46,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_login:
+                //TODO: play ping pong here......
                 mPresenter.onClickLogin();
                 break;
             case R.id.button_register:
