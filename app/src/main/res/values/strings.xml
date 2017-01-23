@@ -4,4 +4,11 @@
     <string name="login.password.hint">Password</string>
     <string name="button.login">Login</string>
     <string name="button.register">sign up</string>
+    <string name="error_title">Error</string>
+    <string name="email_empty">email empty</string>
+    <string name="ok_button">OK</string>
+    <string name="email_null">email is null</string>
+    <string name="email_invalid_format">email does not contain @</string>
+    <string name="email_valid">email is valid</string>
+    <string name="success_title">Success</string>
 </resources>

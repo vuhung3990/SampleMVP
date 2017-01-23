@@ -8,17 +8,11 @@ import com.gvn.samplemvp.BasePresenter;
 
 public interface LoginContract {
     interface View {
-
-        String getEmail();
-
-        String getPassword();
-
-        void showErrorEmpty();
     }
 
     interface Presenter extends BasePresenter {
-        void onClickRegister();
+    }
 
-        void onClickLogin();
+    interface Repository {
     }
 }
