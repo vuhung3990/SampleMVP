@@ -46,26 +46,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_login:
-                //test case
-                //1. check email not null
-                String email = mEmail.getText().toString();
-                if (email == null) {
-                    onError(R.string.email_null);
-                    return;
-                }
-                //2. check email not empty
-                if (email.trim().length() == 0) {
-                    onError(R.string.email_empty);
-                    return;
-                }
-                //3. email contain @
-                if (!email.contains("@")) {
-                    onError(R.string.email_invalid_format);
-                    return;
-                }
-
-                onSuccess(R.string.email_valid);
-
+                mPresenter.onClickLogin();
                 break;
             case R.id.button_register:
                 break;
@@ -74,13 +55,20 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         }
     }
 
-    private void onSuccess(int resString) {
+    @Override
+    public void onSuccess(int resString) {
         alertBuilder.setTitle(R.string.success_title);
         alertBuilder.setMessage(resString);
         alertBuilder.show();
     }
 
-    private void onError(int resString) {
+    @Override
+    public String getEmail() {
+        return mEmail.getText().toString().trim();
+    }
+
+    @Override
+    public void onError(int resString) {
         alertBuilder.setTitle(R.string.error_title);
         alertBuilder.setMessage(resString);
         alertBuilder.show();
