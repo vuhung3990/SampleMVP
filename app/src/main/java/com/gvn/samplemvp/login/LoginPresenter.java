@@ -8,7 +8,6 @@ import com.gvn.samplemvp.R;
 
 public class LoginPresenter implements LoginContract.Presenter {
     private LoginContract.View view;
-    private String email;
 
     public LoginPresenter(LoginContract.View view) {
         this.view = view;
@@ -23,8 +22,7 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     @Override
-    public void onClickLogin() {
-        this.email = view.getEmail();
+    public void onClickLogin(String email) {
         //test case
         //1. check email not null
         if (email == null) {

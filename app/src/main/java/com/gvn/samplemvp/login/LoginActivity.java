@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         switch (view.getId()) {
             case R.id.button_login:
                 //TODO: play ping pong here......
-                mPresenter.onClickLogin();
+                mPresenter.onClickLogin(mEmail.getText().toString().trim());
                 break;
             case R.id.button_register:
                 break;
@@ -61,11 +61,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         alertBuilder.setTitle(R.string.success_title);
         alertBuilder.setMessage(resString);
         alertBuilder.show();
-    }
-
-    @Override
-    public String getEmail() {
-        return mEmail.getText().toString().trim();
     }
 
     @Override

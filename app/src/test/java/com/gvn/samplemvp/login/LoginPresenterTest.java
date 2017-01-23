@@ -10,7 +10,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 /**
  * Created by dev22 on 1/23/17.
@@ -30,8 +29,7 @@ public class LoginPresenterTest {
     @Test
     public void testEmailEmpty() throws Exception {
         // email empty
-        when(loginView.getEmail()).thenReturn("");
-        mPresenter.onClickLogin();
+        mPresenter.onClickLogin("");
 
         verify(loginView).onError(R.string.email_empty);
     }
@@ -39,8 +37,7 @@ public class LoginPresenterTest {
     @Test
     public void testEmailNull() throws Exception {
         // email empty
-        when(loginView.getEmail()).thenReturn(null);
-        mPresenter.onClickLogin();
+        mPresenter.onClickLogin(null);
 
         verify(loginView, never()).onError(R.string.email_empty);
 
@@ -50,8 +47,7 @@ public class LoginPresenterTest {
 
     @Test
     public void testEmailContainAtChar() throws Exception {
-        when(loginView.getEmail()).thenReturn("sadsadsa");
-        mPresenter.onClickLogin();
+        mPresenter.onClickLogin("adsadsadsa");
 
         verify(loginView).onError(R.string.email_invalid_format);
     }

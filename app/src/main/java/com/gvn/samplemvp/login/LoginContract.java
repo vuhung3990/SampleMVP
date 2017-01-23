@@ -7,16 +7,26 @@ import com.gvn.samplemvp.BasePresenter;
  */
 
 public interface LoginContract {
-    public interface View {
+    interface View {
+        /**
+         * display error alert
+         * @param resString string resource to display
+         */
         void onError(int resString);
 
+        /**
+         * display message success
+         * @param resString string resource to display
+         */
         void onSuccess(int resString);
-
-        String getEmail();
     }
 
     interface Presenter extends BasePresenter {
-        void onClickLogin();
+        /**
+         * event click button login
+         * @param email pass email to check format
+         */
+        void onClickLogin(String email);
     }
 
     interface Repository {
