@@ -2,6 +2,8 @@ package com.gvn.samplemvp.login;
 
 import com.gvn.samplemvp.R;
 
+import junit.framework.Assert;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -50,5 +52,15 @@ public class LoginPresenterTest {
         mPresenter.onClickLogin("adsadsadsa");
 
         verify(loginView).onError(R.string.email_invalid_format);
+    }
+
+
+    // junit test
+    @Test
+    public void testEmailValid() {
+        Assert.assertFalse(mPresenter.isValidEmail("dsadsa"));
+        Assert.assertFalse(mPresenter.isValidEmail("    "));
+        Assert.assertFalse(mPresenter.isValidEmail(null));
+        Assert.assertTrue(mPresenter.isValidEmail("dsadsa@dsadsa"));
     }
 }

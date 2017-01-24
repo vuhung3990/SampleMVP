@@ -21,25 +21,29 @@ public class LoginPresenter implements LoginContract.Presenter {
     public void unSubscribe() {
     }
 
-    @Override
-    public void onClickLogin(String email) {
+    public boolean isValidEmail(String email) {
         //test case
         //1. check email not null
         if (email == null) {
             view.onError(R.string.email_null);
-            return;
+            return false;
         }
         //2. check email not empty
         if (email.trim().length() == 0) {
             view.onError(R.string.email_empty);
-            return;
+            return false;
         }
         //3. email contain @
         if (!email.contains("@")) {
             view.onError(R.string.email_invalid_format);
-            return;
+            return false;
         }
+        return true;
+    }
 
-        view.onSuccess(R.string.email_valid);
+    @Override
+    public void onClickLogin(String email) {
+        if (isValidEmail(email))
+            view.onSuccess(R.string.email_valid);
     }
 }
