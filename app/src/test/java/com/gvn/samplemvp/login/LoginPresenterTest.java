@@ -7,6 +7,8 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -22,6 +24,8 @@ public class LoginPresenterTest {
 
     @Mock
     private LoginContract.View loginView;
+    @Captor
+    ArgumentCaptor<Integer> captor;
 
     @Before
     public void setUp() throws Exception {
@@ -50,10 +54,12 @@ public class LoginPresenterTest {
     @Test
     public void testEmailContainAtChar() throws Exception {
         mPresenter.onClickLogin("adsadsadsa");
+//        verify(loginView).onError(R.string.email_invalid_format);
 
-        verify(loginView).onError(R.string.email_invalid_format);
+        // capture parameter
+        verify(loginView).onError(captor.capture());
+        Assert.assertEquals(captor.getValue().intValue(), R.string.email_invalid_format);
     }
-
 
     // junit test
     @Test
